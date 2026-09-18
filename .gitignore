@@ -1,0 +1,13 @@
+# Ignora le impostazioni di VS Code
+.vscode/
+
+# Ignora tutti i file e log del report LaTeX
+Repo.*
+bibliography.bib
+splncs04.bst
+_0F74ADF*
+
+# Ignora immagini del report
+freccia_ludo.png
+Ludo_board_img.png
+S.drawio.png
