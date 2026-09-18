@@ -1,0 +1,45 @@
+mas ludo {
+
+    agent aggressive : aggressive_agent.asl {
+        beliefs:   my_id(0)
+        ag-class:  vesna.VesnaAgent
+        temper:    temper( aggression(0.9), safety(0.1), advance(0.5) )
+        strategy:  most_similar
+        address:   localhost
+        port:      9080
+        goals:     start
+    }
+
+    agent prudent : prudent_agent.asl {
+        beliefs:   my_id(1)
+        ag-class:  vesna.VesnaAgent
+        temper:    temper( aggression(0.1), safety(0.9), advance(0.5) )
+        strategy:  most_similar
+        address:   localhost
+        port:      9081
+        goals:     start
+    }
+
+    agent balanced : balanced_agent.asl {
+        beliefs:   my_id(2)
+        ag-class:  vesna.VesnaAgent
+        temper:    temper( aggression(0.5), safety(0.5), advance(0.7) )
+        strategy:  most_similar
+        address:   localhost
+        port:      9082
+        goals:     start
+    }
+
+   agent emotive_player : emotive_agent.asl {
+    ag-class:  vesna.VesnaAgent
+    temper:    temper( aggression(0.5), safety(0.5), advance(0.5), anger(0.1)[mood], joy(0.8)[mood] )
+    strategy:  most_similar
+    address:   localhost
+    port:      9083
+    goals:     start
+    }
+
+    workspace ludo_game {
+        artifact board : env.LudoBoard
+    }
+}
